@@ -265,6 +265,17 @@ app.on('ready', async () => {
       wins.splice(w.id - 1, 1);
     });
   });
+
+  // Register overlay toggle keybind (Ctrl+Alt+9)
+  let isOverlayVisible = true;
+  globalShortcut.register('CommandOrControl+Alt+9', () => {
+    isOverlayVisible = !isOverlayVisible;
+    wins.forEach(w => {
+      if (!w.isDestroyed()) {
+        w.webContents.send('change-play-status', !isOverlayVisible);
+      }
+    });
+  });
 });
 
 // Flags needed on linux to make the overlay transparent
