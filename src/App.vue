@@ -5,9 +5,9 @@
     vue-draggable-resizable#vue-draggable(
       v-show="shouldShowScreen"
       ref="vue-draggable"
-      :w="menu.w" 
+      :w="menu.w"
       :h="menu.h"
-      :x="menu.x" 
+      :x="menu.x"
       :y="menu.y"
       :parent="true"
       drag-handle=".drag-handle"
@@ -22,7 +22,7 @@
         .center-aligned
           button.play-pause.play-pause__start(
             v-if="isPaused"
-            @click="onPlayPauseButtonPress" 
+            @click="onPlayPauseButtonPress"
           ) Play
           button.play-pause.play-pause__stop(
             v-else
@@ -36,8 +36,8 @@
           label Choose background
             br
             dropdown(
-              @change="onBackgroundImgChange" 
-              :options="backgroundImages" 
+              @change="onBackgroundImgChange"
+              :options="backgroundImages"
               :selected-idx="settings.selectedImgIdx"
             )
           br
@@ -45,17 +45,17 @@
             label Choose interval
               br
               dropdown(
-                @change="onIntervalChange" 
-                :options="intervals" 
+                @change="onIntervalChange"
+                :options="intervals"
                 :selected-idx="settings.selectedIntervalIdx"
               )
             br
             label Choose pause
               br
               dropdown(
-                @change="onPauseChange" 
-                :options="pauses" 
-                :selected-idx="settings.selectedPauseIdx" 
+                @change="onPauseChange"
+                :options="pauses"
+                :selected-idx="settings.selectedPauseIdx"
                 :is-disabled="settings.selectedIntervalIdx === 0"
               )
         .group
@@ -85,8 +85,8 @@
             )
       div.info
         checkbox(
-          label="See this screen the next time", 
-          :checked="settings.showScreenNextTime" 
+          label="See this screen the next time",
+          :checked="settings.showScreenNextTime"
           @change="onShowNextTimeChange"
         )
         button#register-keybind-button(
@@ -192,7 +192,7 @@ export default class App extends Vue {
   }
 
   get cssOpacity(): number {
-    return this.isPaused ? 0 : this.settings.opacity / 200;
+    return this.isPaused ? 0 : this.settings.opacity / 100;
   }
 
   get overlayAnimationDuration(): string {
